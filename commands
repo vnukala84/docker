@@ -1,0 +1,40 @@
+cat Dockerfile 
+FROM openjdk:8-jdk-alpine
+#ARG JAR_FILE=target/*.jar
+COPY  *.jar  app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]
+=================================================================
+
+docker build -t springio/gs-spring-boot-docker .
+
+docker run -p 8081:8080 -t rest-api-sam-docker
+
+======================================================
+venkat@venkat-virtual-machine:~/Desktop/dev$ docker container ls
+CONTAINER ID   IMAGE                 COMMAND                CREATED          STATUS          PORTS                                       NAMES
+b3d3dc1007b3   rest-api-sam-docker   "java -jar /app.jar"   18 minutes ago   Up 18 minutes   0.0.0.0:8081->8080/tcp, :::8081->8080/tcp   keen_shannon
+========================================
+
+enkat@venkat-virtual-machine:~/Desktop/dev$ docker logs b3d3dc1007b3
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.5.2)
+
+2022-09-25 15:54:06.228  INFO 1 --- [           main] c.e.restservice.RestServiceApplication   : Starting RestServiceApplication v0.0.1-SNAPSHOT using Java 1.8.0_212 on b3d3dc1007b3 with PID 1 (/app.jar started by root in /)
+2022-09-25 15:54:06.232  INFO 1 --- [           main] c.e.restservice.RestServiceApplication   : No active profile set, falling back to default profiles: default
+2022-09-25 15:54:08.609  INFO 1 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-09-25 15:54:08.626  INFO 1 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-09-25 15:54:08.626  INFO 1 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.48]
+2022-09-25 15:54:08.764  INFO 1 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-09-25 15:54:08.764  INFO 1 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2409 ms
+2022-09-25 15:54:09.461  INFO 1 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-09-25 15:54:09.476  INFO 1 --- [           main] c.e.restservice.RestServiceApplication   : Started RestServiceApplication in 3.989 seconds (JVM running for 5.023)
+venkat@venkat-virtual-machine:~/Desktop/dev$ 
+=================================================
+
+
