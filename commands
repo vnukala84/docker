@@ -37,4 +37,10 @@ enkat@venkat-virtual-machine:~/Desktop/dev$ docker logs b3d3dc1007b3
 venkat@venkat-virtual-machine:~/Desktop/dev$ 
 =================================================
 
+create docker network ::
+-----------------------
+
+enkat@venkat-virtual-machine:~/Desktop/dev$ docker network create mynetwork
+98f4b663386e3daed4423b3f103828f08d2ae674eb6e413c4d8519e96a187265
+-----------------------------------------------------------------
 
