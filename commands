@@ -44,3 +44,8 @@ enkat@venkat-virtual-machine:~/Desktop/dev$ docker network create mynetwork
 98f4b663386e3daed4423b3f103828f08d2ae674eb6e413c4d8519e96a187265
 -----------------------------------------------------------------
 
+ps -aux | grep docker
+
+starting the docker
+
+systemctl start docker
